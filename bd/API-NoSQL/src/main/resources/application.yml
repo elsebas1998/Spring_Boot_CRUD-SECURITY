@@ -1,0 +1,22 @@
+server:
+  port: 9003
+
+
+
+spring:
+  application:
+    name: API-NoSQL
+  autoconfigure:
+    exclude:org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+
+
+
