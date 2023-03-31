@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:fragment="head">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Level HTML Template by Tooplate</title>
+    <!--
+
+Tooplate 2095 Level
+
+https://www.tooplate.com/view/2095-level
+
+-->
+    <!-- load stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <!-- Google web font "Open Sans" -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/datepicker.css}" />
+    <link rel="stylesheet" th:href="@{/css/tooplate-style.css}" /> <!-- Templatemo style -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+
+</head>
+
+<body  onload="obtenerDatos()">
+<div class="tm-main-content" id="top">
+    <div class="tm-top-bar-bg"></div>
+    <div class="tm-top-bar" id="tm-top-bar">
+        <!-- Top Navbar -->
+        <div class="container">
+            <div class="row">
+
+                <nav class="navbar navbar-expand-lg narbar-light" style="height: 100px">
+                    <a class="navbar-brand mr-auto" href="#">
+                        <img th:src="@{/img/logo.png}" style="height: 100px;" alt="Site logo">
+
+                    </a>
+                    <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse"
+                            data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#top">Home <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+
+                            <li class="nav-item"sec:authorize="hasRole('USER')">
+                                <a class="nav-link" href="#tm-section-1" >Reservar</a>
+                            </li>
+                            <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                                <a class="nav-link" href="#tm-section-11">Comida</a>
+                            </li>
+                            <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                                <a class="nav-link" href="#tm-section-2">Bebida</a>
+                            </li>
+                            <li class="nav-item"sec:authorize="hasRole('ADMIN')">
+                                <a class="nav-link" href="#tm-section-444" >Recreacion</a>
+                            </li>
+                            <li class="nav-item"sec:authorize="hasRole('ADMIN')">
+                                <a class="nav-link" href="#tm-section-555" >Servicio</a>
+                            </li>
+                            <li class="nav-item"sec:authorize="hasRole('ADMIN')">
+                                <a class="nav-link" href="#tm-section-666" >Habitacion</a>
+                            </li>
+                            <li class="nav-item"sec:authorize="hasRole('ADMIN')">
+                                <a  class="nav-link" th:href="@{/exportarPDF1}" >REPORTE USUARIOS</a>
+                            </li>
+                            <li class="nav-item" >
+                                <a class="nav-link" th:href="@{/logout}">Cerrar Sesion</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="tm-section tm-section-pad tm-bg-gray" id="tm-section-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                    <div class="tm-article-carousel">
+                        <article class="tm-bg-white mr-2 tm-carousel-item">
+                            <img th:src="@{/img/titanic.jpg}" style="min-width:100%"  alt="Image"
+                                 class="img-fluid">
+                            <div class="tm-article-pad">
+                                <header>
+                                    <h3 class="text-uppercase tm-article-title-2">Descubriendo el Mediterráneo: Un
+                                        Crucero Inolvidable</h3>
+                                </header>
+                                <p>Navegar por el Mediterráneo es una experiencia única que te llevará a descubrir
+                                    la rica cultura y belleza de las costas europeas.Disfruta de la comodidad y el
+                                    lujo a bordo de nuestro crucero de última generación, donde podrás relajarte.
+                                </p>
+                                <a href="#" class="text-uppercase btn-primary tm-btn-primary">Mas Informacion</a>
+                            </div>
+                        </article>
+                        <article class="tm-bg-white mr-2 tm-carousel-item">
+                            <img th:src="@{img/mesera.jpg}"style="min-width:100%" alt="Image"
+                                 class="img-fluid">
+                            <div class="tm-article-pad">
+                                <header>
+                                    <h3 class="text-uppercase tm-article-title-2">La Excelencia en el Servicio a
+                                        Bordo: Los Meseros de Crucero</h3>
+                                </header>
+                                <p>Los meseros de crucero son la clave para brindar una experiencia de viaje
+                                    inolvidable, su atención al detalle y servicio excepcional asegura que los
+                                    pasajeros se sientan mimados y bien atendidos durante toda la travesía.</p>
+                                <a href="#" class="text-uppercase btn-primary tm-btn-primary">Mas Informacion</a>
+                            </div>
+                        </article>
+                        <article class="tm-bg-white mr-2 tm-carousel-item">
+                            <img th:src="@{img/actividades.jpg}"style="min-width:100%"  alt="Image"
+                                 class="img-fluid">
+                            <div class="tm-article-pad">
+                                <header>
+                                    <h3 class="text-uppercase tm-article-title-2">Aventuras sin Fin: Las Actividades
+                                        a Bordo de Nuestro Crucero</h3>
+                                </header>
+                                <p>Desde deportes acuáticos hasta entretenimiento en vivo, nuestras actividades a
+                                    bordo mantendrán a los pasajeros de todas las edades entretenidos y emocionados
+                                    durante todo el viaje.</p>
+                                <a href="#" class="text-uppercase btn-primary tm-btn-primary">Mas Informacion</a>
+                            </div>
+                        </article>
+                        <article class="tm-bg-white mr-2 tm-carousel-item">
+                            <img th:src="@{img/comidas.jpg}"style="min-width:100%" alt="Image"
+                                 class="img-fluid">
+                            <div class="tm-article-pad">
+                                <header>
+                                    <h3 class="text-uppercase tm-article-title-2">Sabores del Mundo a Bordo:
+                                        Deléitese con Nuestro Buffet de Crucero</h3>
+                                </header>
+                                <p>Nuestro buffet de crucero ofrece una amplia variedad de opciones culinarias,
+                                    desde platos locales hasta cocinas internacionales, para satisfacer todos los
+                                    gustos y antojos de nuestros pasajeros. </p>
+                                <a href="#" class="text-uppercase btn-primary tm-btn-primary">Mas Informacion</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-recommended-container">
+                    <div class="tm-bg-white">
+                        <div class="tm-bg-primary tm-sidebar-pad">
+                            <h3 class="tm-color-white tm-sidebar-title">Extras Recomendados</h3>
+                            <p class="tm-color-white tm-margin-b-0 tm-font-light">Disfruta de un viaje inolvidable
+                                con gustos especiales</p>
+                        </div>
+                        <div class="tm-sidebar-pad-2">
+                            <a href="#" class="media tm-media tm-recommended-item">
+                                <img th:src="@{img/comida1.jpg}" alt="Image" style="width:90px; height:85px;">
+                                <div class="media-body tm-media-body tm-bg-gray">
+                                    <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">Comidas</h4>
+                                </div>
+                            </a>
+                            <a href="#" class="media tm-media tm-recommended-item">
+                                <img th:src="@{img/bebida1.jpg}" alt="Image" style="width:90px; height:85px;">
+                                <div class="media-body tm-media-body tm-bg-gray">
+                                    <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">Bebidas</h4>
+                                </div>
+                            </a>
+                            <a href="#" class="media tm-media tm-recommended-item">
+                                <img th:src="@{img/actividad1.jpg}" alt="Image" style="width:90px; height:85px;">
+                                <div class="media-body tm-media-body tm-bg-gray">
+                                    <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">Actividades
+                                    </h4>
+                                </div>
+                            </a>
+                            <a href="#" class="media tm-media tm-recommended-item">
+                                <img th:src="@{img/servicio1.jpg}" alt="Image" style="width:90px; height:85px;">
+                                <div class="media-body tm-media-body tm-bg-gray">
+                                    <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">Servicios
+                                    </h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tm-section tm-bg-img" id="tm-section-1" >
+        <div class="tm-bg-white ie-container-width-fix-2">
+            <div class="container ie-h-align-center-fix">
+                <div class="row">
+                    <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+                        <form  id="formulario-reserva" method="get" class="tm-search-form tm-section-pad-2">
+                            <div class="form-row tm-search-form-row" th:each="usuario : ${usuarios}" th:if="${usuario.id > 2}">
+                                <div class="form-group tm-form-element tm-form-element-100 col-sm-6" >
+                                    <i class="fa fa-user fa-1x tm-form-element-icon" ></i>
+                                    <input type="text" class="form-control" id="inputNombre"
+                                           name="username" th:value="${usuario.nombre}" disabled="true">
+                                </div>
+                                <div class="form-group tm-form-element tm-form-element-100 col-sm-6">
+                                    <i class="fa fa-user fa-1x tm-form-element-icon"></i>
+                                    <input name="Apellido" type="text" class="form-control" id="inputApellido"
+                                           th:value="${usuario.apellido}" disabled="true">
+                                </div>
+                                <div class="form-group tm-form-element tm-form-element-100 col-sm-12">
+                                    <i class="fa fa-envelope-o fa-1x tm-form-element-icon" ></i>
+                                    <input name="Email" type="email" class="form-control" id="inputEmail"
+                                           th:value="${usuario.email}" disabled="true">
+                                </div>
+                                <div class="form-group tm-form-element tm-form-element-50 col-sm-6">
+                                    <i class="fa fa-calendar fa-1x tm-form-element-icon"></i>
+                                    <input name="Fecha-Ingreso" type="date" class="form-control" id="inputCheckIn"
+                                           placeholder="Fecha Ingreso">
+                                </div>
+                                <div class="form-group tm-form-element tm-form-element-50 col-sm-6">
+                                    <i class="fa fa-calendar fa-1x tm-form-element-icon"></i>
+                                    <input name="Fecha-Salida" type="date" class="form-control" id="inputCheckOut"
+                                           placeholder="Fecha Salida">
+                                </div>
+                                <label  class="col-sm-6">Selecciona el tipo de habitacion:</label>
+                                <div for="user-select" class="form-group tm-form-element tm-form-element-2 col-sm-12">
+                                    <select id="select-tipoHabitacion" class="form-control tm-select"></select>
+                                    <i class="fa fa-user tm-form-element-icon tm-form-element-icon-small"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 text-center mt-3 mb-3" style="border-bottom: 1px solid #ccc;">
+                                <h3><span class="bg-white px-2">EXTRA</span></h3>
+                            </div>
+                            <div class="form-row tm-search-form-row">
+                                <label  class="col-sm-6">Selecciona una comida:</label>
+                                <div for="user-select" class="form-group tm-form-element tm-form-element-2">
+                                    <select id="select-comida" class="form-control tm-select"></select>
+                                    <i class="fa fa-user tm-form-element-icon tm-form-element-icon-small"></i>
+                                </div>
+                                <label class="col-sm-6">Selecciona una bebida:</label>
+                                <div for="user-select" class="form-group tm-form-element tm-form-element-2">
+                                    <select id="select-bebida" class="form-control tm-select"></select>
+                                    <i class="fa fa-user tm-form-element-icon tm-form-element-icon-small"></i>
+                                </div>
+                                <label class="col-sm-6">Selecciona una recreacion:</label>
+                                <div for="user-select" class="form-group tm-form-element tm-form-element-2">
+                                    <select id="select-recreacion" class="form-control tm-select"></select>
+                                    <i class="fa fa-user tm-form-element-icon tm-form-element-icon-small"></i>
+                                </div>
+                                <label  class="col-sm-6">Selecciona un servicio:</label>
+                                <div for="user-select" class="form-group tm-form-element tm-form-element-2">
+                                    <select id="select-servicio" class="form-control tm-select"></select>
+                                    <i class="fa fa-user tm-form-element-icon tm-form-element-icon-small"></i>
+                                </div>
+
+                                <div class="form-group tm-form-element tm-form-element-2 col-sm-12">
+                                    <button type="submit" onclick="crearSubmitListener2222()" class="btn btn-primary tm-btn-search">RESERVAR</button>
+                                </div>
+                            </div>
+                            <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
+                                <a href="#"
+                                   class="ie-10-ml-auto ml-auto mt-1 tm-font-semibold tm-color-primary">Necesitas ayuda</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIV DE LA SECCIÓN 1 INGRESO BEBIDAS-->
+    <div class="tm-section tm-bg-img" id="tm-section-11" sec:authorize="hasRole('ADMIN')" >
+        <div class="tm-bg-white ie-container-width-fix-2">
+            <div class="container ie-h-align-center-fix">
+                <div class="row">
+                    <div class="col-xs-12 ml-auto mr-auto ">
+                        <form  id="formulario-crucero" method="get" class="tm-search-form tm-section-pad-2">
+                            <h3 class="tm-color-primary tm-article-title-1">Ingreso de nuevas Bebidas</h3>
+                            <div class="form-row tm-search-form-row">
+                                <div class="form-group tm-form-element tm-form-element-100">
+                                    <input type="text" class="form-control" id="nombre5" name="nombre5"
+                                           placeholder="Nombre">
+                                </div>
+                                <div class="form-group tm-form-element tm-form-element-50">
+                                    <input  type="text" class="form-control"  id="descripcion5" name="descripcion5" placeholder="Descripcion">
+                                </div>
+                                <div class="form-group tm-form-element tm-form-element-50">
+                                    <input   type="text" class="form-control" id="placa5" name="placa5" placeholder="Precio" pattern="[0-9]+">
+
+                                </div>
+                            </div>
+                            <div class="form-row tm-search-form-row">
+
+                                <div class="form-group tm-form-element tm-form-element-2">
+                                    <button type="submit" onclick="crearSubmitListener()" class="btn btn-primary">Crear bebida</button>
+                                </div>
+                            </div>
+                            <div >
+                                <h3 class="tm-color-primary tm-article-title-1">Tabla de Bebidas</h3>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tabla-crucero" >
+                                    <!-- Las filas de la tabla se generarán con JavaScript -->
+                                    </tbody>
+                                </table >
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIV DE LA SECCIÓN 2 INGRESO COMIDAS-->
+    <div class="tm-section-1", id="tm-section-2" sec:authorize="hasRole('ADMIN')">
+        <div class="tm-bg-white ie-container-width-fix-2">
+            <div class="container ie-h-align-center-fix">
+                <div class="row">
+                    <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+                        <form  id="formulario-comida" method="get" class="tm-search-form tm-section-pad-2">
+                            <h3 class="tm-color-primary tm-article-title-1">Ingreso de nuevas Comidas</h3>
+                            <div class="form-row tm-search-form-row">
+                                <div class="form-group tm-form-element tm-form-element-100">
+                                    <input type="text" class="form-control" id="nombre1" name="nombre1"
+                                           placeholder="Nombre">
+                                </div>
+                                <div class="form-group tm-form-element tm-form-element-50">
+                                    <input type="text" class="form-control"  id="descripcion1" name="descripcion1" placeholder="Descripcion">
+                                </div>
+                                <div class="form-group tm-form-element tm-form-element-50">
+                                    <input type="text" class="form-control" id="placa1" name="placa1" placeholder="Precio" pattern="[0-9]+">
+
+                                </div>
+                            </div>
+                            <div class="form-row tm-search-form-row">
+
+                                <div class="form-group tm-form-element tm-form-element-2">
+                                    <button type="submit" onclick="crearComida()" class="btn btn-primary">Crear Comida</button>
+                                </div>
+                            </div>
+                            <div >
+                                <h3 class="tm-color-primary tm-article-title-1">Tabla de Comidas</h3>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tabla-comida" >
+                                    <!-- Las filas de la tabla se generarán con JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIV DE LA SECCIÓN 3 INGRESO RECREACIONES-->
+    <div class="tm-section " id="tm-section-444" sec:authorize="hasRole('ADMIN')">
+        <div class="tm-bg-white ie-container-width-fix-2">
+            <div class="container ie-h-align-center-fix">
+                <div class="row">
+                    <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+                        <form  id="formulario-recreacion" method="get" class="tm-search-form tm-section-pad-2">
+                            <h3 class="tm-color-primary tm-article-title-1">Ingreso de nuevas Recreaciones</h3>
+                            <div class="form-row tm-search-form-row">
+                                <div class="form-group tm-form-element tm-form-element-100">
+                                    <input  type="text" class="form-control" id="nombre2" name="nombre2"
+                                           placeholder="Nombre">
+                                </div>
+                                <div class="form-group tm-form-element tm-form-element-50">
+                                    <input  type="text" class="form-control"  id="descripcion2" name="descripcion2" placeholder="Descripcion">
+                                </div>
+                                <div class="form-group tm-form-element tm-form-element-50">
+                                    <input  type="text" class="form-control" id="placa2" name="placa2" placeholder="Precio" pattern="[0-9]+">
+
+                                </div>
+                            </div>
+                            <div class="form-row tm-search-form-row">
+
+                                <div class="form-group tm-form-element tm-form-element-2">
+                                    <button type="submit" onclick="crearRecreacion()" class="btn btn-primary">Crear Recreaciones</button>
+                                </div>
+                            </div>
+                            <div >
+                                <h3 class="tm-color-primary tm-article-title-1">Tabla de Recreaciones</h3>
+                                <table  class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tabla-recreacion">
+                                    <!-- Las filas de la tabla se generarán con JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- DIV DE LA SECCIÓN 4 INGRESO SERVICIOS-->
+    <div class="tm-section-1", id="tm-section-555" sec:authorize="hasRole('ADMIN')">
+            <div class="tm-bg-white ie-container-width-fix-2">
+                <div class="container ie-h-align-center-fix">
+                    <div class="row">
+                        <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+                            <form  id="formulario-servicio" method="get" class="tm-search-form tm-section-pad-2">
+                                <h3 class="tm-color-primary tm-article-title-1">Ingreso de nuevos Servicios</h3>
+                                <div class="form-row tm-search-form-row">
+                                    <div class="form-group tm-form-element tm-form-element-100">
+                                        <input type="text" class="form-control" id="nombre3" name="nombre3"
+                                               placeholder="Nombre">
+                                    </div>
+                                    <div class="form-group tm-form-element tm-form-element-50">
+                                        <input type="text" class="form-control"  id="descripcion3" name="descripcion3" placeholder="Descripcion">
+                                    </div>
+                                    <div class="form-group tm-form-element tm-form-element-50">
+                                        <input type="text"  class="form-control" id="placa3" name="placa3" placeholder="Precio" pattern="[0-9]+">
+
+                                    </div>
+                                </div>
+                                <div class="form-row tm-search-form-row">
+
+                                    <div class="form-group tm-form-element tm-form-element-2">
+                                        <button type="submit" onclick="crearServicio()" class="btn btn-primary">Crear Servicio</button>
+                                    </div>
+                                </div>
+                                <div >
+                                    <h3 class="tm-color-primary tm-article-title-1">Tabla de Servicios</h3>
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Descripcion</th>
+                                            <th>Precio</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody  id="tabla-servicio" >
+                                        <!-- Las filas de la tabla se generarán con JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- DIV DE LA SECCIÓN 5 INGRESO habitacion-->
+    <div class="tm-section " id="tm-section-666" sec:authorize="hasRole('ADMIN')">
+        <div class="tm-bg-white ie-container-width-fix-2">
+            <div class="container ie-h-align-center-fix">
+                <div class="row">
+                    <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+                        <form  id="formulario-habitacion" method="get" class="tm-search-form tm-section-pad-2">
+                            <h3 class="tm-color-primary tm-article-title-1">Ingreso de nuevas Habitaciones</h3>
+                            <div class="form-row tm-search-form-row">
+                                <div class="form-group tm-form-element tm-form-element-100">
+                                    <input  type="text" class="form-control" id="nombre4" name="nombre4"
+                                           placeholder="Nombre">
+                                </div>
+                                <div class="form-group tm-form-element tm-form-element-50">
+                                    <input type="text" class="form-control"  id="descripcion4" name="descripcion4" placeholder="Descripcion">
+                                </div>
+                                <div class="form-group tm-form-element tm-form-element-50">
+                                    <input  type="text" class="form-control" id="placa4" name="placa4" placeholder="Precio" pattern="[0-9]+">
+
+                                </div>
+                                <div class="form-group tm-form-element tm-form-element-50">
+                                    <input  type="text" class="form-control" id="capacidad" name="capacidad" placeholder="Capacidad" pattern="[0-9]+">
+
+                                </div>
+                            </div>
+                            <div class="form-row tm-search-form-row">
+
+                                <div class="form-group tm-form-element tm-form-element-2">
+                                    <button type="submit" onclick="crearHabitacion()" class="btn btn-primary">Crear Habitación</button>
+                                </div>
+                            </div>
+                            <div >
+                                <h3 class="tm-color-primary tm-article-title-1">Tabla de Habitaciones</h3>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>Capacidad</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tabla-habitacion" >
+                                    <!-- Las filas de la tabla se generarán con JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- load JS files -->
+<script src="js/jquery-1.11.3.min.js"></script> <!-- jQuery (https://jquery.com/download/) -->
+<script src="js/popper.min.js"></script> <!-- https://popper.js.org/ -->
+<script src="js/bootstrap.min.js"></script> <!-- https://getbootstrap.com/ -->
+<script src="js/datepicker.min.js"></script> <!-- https://github.com/qodesmith/datepicker -->
+<script src="js/jquery.singlePageNav.min.js"></script>
+<!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
+<script src="slick/slick.min.js"></script> <!-- http://kenwheeler.github.io/slick/ -->
+<script src="/2095_level/2095_level/js/index.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+
+
+    const formulario = document.querySelector('#formulario-reserva');
+    const url = 'http://localhost:9095/Productor/reserva';
+    function crearSubmitListener2222(){
+        formulario.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const nombreCliente = formulario.querySelector('#inputNombre').value;
+        const apellidoCliente = formulario.querySelector('#inputApellido').value;
+        const emailCliente = formulario.querySelector('#inputEmail').value;
+        const fechaInicio = formulario.querySelector('#inputCheckIn').value;
+        const fechaFin = formulario.querySelector('#inputCheckOut').value;
+
+        const data = {
+            nombreCliente: nombreCliente,
+            apellidoCliente  : apellidoCliente,
+            emailCliente: emailCliente,
+            fechaInicio: fechaInicio,
+            fechaFin: fechaFin
+        };
+        const response = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            console.log('La solicitud ha sido exitosa');
+            console.info(data);
+        } else {
+            console.error('Error al realizar la solicitud');
+        }
+    });
+    }
+
+    function obtenerDatos() {
+        axios.get('http://localhost:9096/Consumidor/tipoHabitacion')
+            .then(function (response) {
+                // Manejar la respuesta exitosa
+                let usuarios = response.data;
+                // Mostrar los usuarios en un select option
+                let select = document.getElementById("select-tipoHabitacion");
+                usuarios.forEach(function (usuario) {
+                    let option = document.createElement("option");
+                    option.text = usuario.nombre;
+                    option.value = usuario.id;
+                    select.add(option);
+                });
+            })
+            .catch(function (error) {
+                // Manejar el error de la petición
+                console.error(error);
+            });
+        axios.get('http://localhost:9096/Consumidor/comida')
+            .then(function (response) {
+                // Manejar la respuesta exitosa
+                let usuarios = response.data;
+                // Mostrar los usuarios en un select option
+                let select = document.getElementById("select-comida");
+                usuarios.forEach(function (usuario) {
+                    let option = document.createElement("option");
+                    option.text = usuario.nombre;
+                    option.value = usuario.id;
+                    select.add(option);
+                });
+            })
+            .catch(function (error) {
+                // Manejar el error de la petición
+                console.error(error);
+            });
+        axios.get('http://localhost:9096/Consumidor/bebida')
+            .then(function (response) {
+                // Manejar la respuesta exitosa
+                let usuarios = response.data;
+                // Mostrar los usuarios en un select option
+                let select = document.getElementById("select-bebida");
+                usuarios.forEach(function (usuario) {
+                    let option = document.createElement("option");
+                    option.text = usuario.nombre;
+                    option.value = usuario.id;
+                    select.add(option);
+                });
+            })
+            .catch(function (error) {
+                // Manejar el error de la petición
+                console.error(error);
+            });
+        axios.get('http://localhost:9096/Consumidor/servicio')
+            .then(function (response) {
+                // Manejar la respuesta exitosa
+                let usuarios = response.data;
+                // Mostrar los usuarios en un select option
+                let select = document.getElementById("select-recreacion");
+                usuarios.forEach(function (usuario) {
+                    let option = document.createElement("option");
+                    option.text = usuario.nombre;
+                    option.value = usuario.id;
+                    select.add(option);
+                });
+            })
+            .catch(function (error) {
+                // Manejar el error de la petición
+                console.error(error);
+            });
+        axios.get('http://localhost:9096/Consumidor/recreacion')
+            .then(function (response) {
+                // Manejar la respuesta exitosa
+                let usuarios = response.data;
+                // Mostrar los usuarios en un select option
+                let select = document.getElementById("select-servicio");
+                usuarios.forEach(function (usuario) {
+                    let option = document.createElement("option");
+                    option.text = usuario.nombre;
+                    option.value = usuario.id;
+                    select.add(option);
+                });
+            })
+            .catch(function (error) {
+                // Manejar el error de la petición
+                console.error(error);
+            });
+    }
+
+    const formulario5 = document.querySelector('#formulario-crucero');
+    const tabla5 = document.querySelector('#tabla-crucero');
+    const url5 = 'http://localhost:9095/Productor/bebida';
+    const urlGet5 = 'http://localhost:9191/Consumidor/bebida';
+    function crearSubmitListener() {
+        formulario5.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const nombre = formulario5.querySelector('#nombre5').value;
+            const descripcion = formulario5.querySelector('#descripcion5').value;
+            const precio = formulario5.querySelector('#placa5').value;
+            console.log(descripcion)
+            console.log(nombre)
+            console.log(precio)
+            const data = {
+                nombre: nombre,
+                descripcion: descripcion,
+                precio: precio
+            };
+
+            const response = await fetch(url5, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                console.log('La solicitud ha sido exitosa');
+                actualizarTabla();
+            } else {
+                console.error('Error al realizar la solicitud');
+            }
+        });
+    }
+
+    function actualizarTabla() {
+        fetch(urlGet5)
+            .then(response => response.json())
+            .then(data => {
+                // Limpiar la tabla existente
+                while (tabla5.firstChild) {
+                    tabla5.removeChild(tabla5.firstChild);
+                }
+
+                // Crear las filas de la tabla con los datos recibidos
+                data.forEach(crucero => {
+                    const row = document.createElement('tr');
+                    const modeloCell = document.createElement('td');
+                    const nombreCell = document.createElement('td');
+                    const placaCell = document.createElement('td');
+
+                    modeloCell.textContent = crucero.nombre;
+                    nombreCell.textContent = crucero.descripcion;
+                    placaCell.textContent = crucero.precio;
+
+                    row.appendChild(modeloCell);
+                    row.appendChild(nombreCell);
+                    row.appendChild(placaCell);
+
+                    tabla5.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error al actualizar la tabla: ', error);
+            });
+    }
+
+    const form = document.querySelector('#formulario-comida');
+    const table1 = document.querySelector('#tabla-comida');
+    const url1 = 'http://localhost:9095/Productor/comida';
+    const urlGet1 = 'http://localhost:9191/Consumidor/comida';
+
+    function crearComida() {
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const nombre = form.querySelector('#nombre1').value;
+            const descripcion = form.querySelector('#descripcion1').value;
+            const precio = form.querySelector('#placa1').value;
+
+            const data = {
+                nombre: nombre,
+                descripcion: descripcion,
+                precio: precio
+            };
+
+            const response = await fetch(url1, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                console.log('La solicitud ha sido exitosa');
+                actualizarTabla1();
+            } else {
+                console.error('Error al realizar la solicitud');
+            }
+        });
+    }
+    function actualizarTabla1() {
+        fetch(urlGet1)
+            .then(response => response.json())
+            .then(data => {
+                // Limpiar la tabla existente
+                while (table1.firstChild) {
+                    table1.removeChild(table1.firstChild);
+                }
+
+                // Crear las filas de la tabla con los datos recibidos
+                data.forEach(crucero => {
+
+                    const row = document.createElement('tr');
+                    const modeloCell = document.createElement('td');
+                    const nombreCell = document.createElement('td');
+                    const placaCell = document.createElement('td');
+
+                    modeloCell.textContent = crucero.nombre;
+                    nombreCell.textContent = crucero.descripcion;
+                    placaCell.textContent = crucero.precio;
+
+                    row.appendChild(modeloCell);
+                    row.appendChild(nombreCell);
+                    row.appendChild(placaCell);
+
+                    table1.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error al actualizar la tabla: ', error);
+            });
+    }
+
+    const form2 = document.querySelector('#formulario-recreacion');
+    const table2 = document.querySelector('#tabla-recreacion');
+    const url2 = 'http://localhost:9095/Productor/recreacion';
+    const urlGet2 ='http://localhost:9191/Consumidor/recreacion';
+    function crearRecreacion() {
+        form2.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const nombre = form2.querySelector('#nombre2').value;
+            const descripcion = form2.querySelector('#descripcion2').value;
+            const precio = form2.querySelector('#placa2').value;
+
+            const data = {
+                nombre: nombre,
+                descripcion: descripcion,
+                precio: precio
+            };
+
+            const response = await fetch(url2, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                console.log('La solicitud ha sido exitosa');
+                actualizarTabla2();
+            } else {
+                console.error('Error al realizar la solicitud');
+            }
+        });
+    }
+    function actualizarTabla2() {
+        fetch(urlGet2)
+            .then(response => response.json())
+            .then(data => {
+                // Limpiar la tabla existente
+                while (table2.firstChild) {
+                    table2.removeChild(table2.firstChild);
+                }
+
+                // Crear las filas de la tabla con los datos recibidos
+                data.forEach(crucero => {
+
+                    const row = document.createElement('tr');
+                    const modeloCell = document.createElement('td');
+                    const nombreCell = document.createElement('td');
+                    const placaCell = document.createElement('td');
+
+                    modeloCell.textContent = crucero.nombre;
+                    nombreCell.textContent = crucero.descripcion;
+                    placaCell.textContent = crucero.precio;
+
+                    row.appendChild(modeloCell);
+                    row.appendChild(nombreCell);
+                    row.appendChild(placaCell);
+
+                    table2.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error al actualizar la tabla: ', error);
+            });
+    }
+
+    const form3 = document.querySelector('#formulario-servicio');
+    const table3 = document.querySelector('#tabla-servicio');
+    const url3 = 'http://localhost:9095/Productor/servicio';
+    const urlGet3 = 'http://localhost:9191/Consumidor/servicio';
+    function crearServicio(){
+        form3.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const nombre = form3.querySelector('#nombre3').value;
+        const descripcion = form3.querySelector('#descripcion3').value;
+        const precio = form3.querySelector('#placa3').value;
+
+        const data = {
+            nombre: nombre,
+            descripcion : descripcion,
+            precio: precio
+        };
+
+        const response = await fetch(url3, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            console.log('La solicitud ha sido exitosa');
+            actualizarTabla3();
+        } else {
+            console.error('Error al realizar la solicitud');
+        }
+    });
+    }
+    function actualizarTabla3() {
+        fetch(urlGet3)
+            .then(response => response.json())
+            .then(data => {
+                // Limpiar la tabla existente
+                while (table3.firstChild) {
+                    table3.removeChild(table3.firstChild);
+                }
+
+                // Crear las filas de la tabla con los datos recibidos
+                data.forEach(crucero => {
+
+                    const row = document.createElement('tr');
+                    const modeloCell = document.createElement('td');
+                    const nombreCell = document.createElement('td');
+                    const placaCell = document.createElement('td');
+
+                    modeloCell.textContent = crucero.nombre;
+                    nombreCell.textContent = crucero.descripcion;
+                    placaCell.textContent = crucero.precio;
+
+                    row.appendChild(modeloCell);
+                    row.appendChild(nombreCell);
+                    row.appendChild(placaCell);
+
+                    table3.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error al actualizar la tabla: ', error);
+            });
+    }
+
+    const form4 = document.querySelector('#formulario-habitacion');
+    const table4 = document.querySelector('#tabla-habitacion');
+    const url4 = 'http://localhost:9095/Productor/tipoHabitacion';
+    const urlGet4 = 'http://localhost:9191/Consumidor/tipoHabitacion';
+
+    function crearHabitacion(){
+    form4.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const nombre = form4.querySelector('#nombre4').value;
+        const descripcion = form4.querySelector('#descripcion4').value;
+        const precio = form4.querySelector('#placa4').value;
+        const capacidad = form4.querySelector('#capacidad').value;
+
+        const data = {
+            nombre: nombre,
+            descripcion : descripcion,
+            precio: precio,
+            capacidad:capacidad
+        };
+
+        const response = await fetch(url4, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            console.log('La solicitud ha sido exitosa');
+            actualizarTabla4();
+        } else {
+            console.error('Error al realizar la solicitud');
+        }
+    });
+    }
+    function actualizarTabla4() {
+        fetch(urlGet4)
+            .then(response => response.json())
+            .then(data => {
+                // Limpiar la tabla existente
+                while (table4.firstChild) {
+                    table4.removeChild(table4.firstChild);
+                }
+
+                // Crear las filas de la tabla con los datos recibidos
+                data.forEach(crucero => {
+
+                    const row = document.createElement('tr');
+                    const modeloCell = document.createElement('td');
+                    const nombreCell = document.createElement('td');
+                    const placaCell = document.createElement('td');
+                    const capacidadCell = document.createElement('td');
+
+                    modeloCell.textContent = crucero.nombre;
+                    nombreCell.textContent = crucero.descripcion;
+                    placaCell.textContent = crucero.precio;
+                    capacidadCell.textContent = crucero.capacidad;
+
+                    row.appendChild(modeloCell);
+                    row.appendChild(nombreCell);
+                    row.appendChild(placaCell);
+                    row.appendChild(capacidadCell);
+
+                    table4.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error al actualizar la tabla: ', error);
+            });
+    }
+
+
+    // Llamar actualizarTabla() al cargar la página
+    window.addEventListener('load', actualizarTabla);
+    window.addEventListener('load', actualizarTabla1);
+    window.addEventListener('load', actualizarTabla2);
+    window.addEventListener('load', actualizarTabla3);
+    window.addEventListener('load', actualizarTabla4);
+</script>
+
+</body>
+
+</html>
